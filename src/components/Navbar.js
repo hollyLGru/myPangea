@@ -2,19 +2,21 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, IconButton, Typography } from "@mui/material";
 import cookie from "cookie";
+import './Navbar.css';
 
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="relative">
+    <AppBar 
+      sx={{
+        backgroundColor: "#ffcc80",
+        }} position="static">
+
       <Toolbar>
-        <IconButton color="inherit">
-        </IconButton>
-        <Typography variant="h6" style={{ flexGrow: "1" }}>
-          myPangea
-        </Typography>
+
+        <div>
         <ul className="nav-list">
           <li className="nav-list-item">
             <Link to="/">Home</Link>
@@ -34,6 +36,7 @@ const Navbar = () => {
             Logout
           </li>
         </ul>
+        </div>
       </Toolbar>
     </AppBar>
   );

@@ -29,8 +29,6 @@ handleSubmit = (e) => {
 //THIS IS WHERE WE STORE THE DATA THAT WAS ENTERED IN FORM!!!!!!!!
 //use axios here: 
 axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
-  // firstName: this.state.firstName,
-  // lastName: this.state.lastName,
   email: this.state.email,
   password: this.state.password
 })
@@ -42,8 +40,7 @@ axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
 })
 
   this.setState({
-    // firstName: "",
-    // lastName: "",
+
     email: "",
     password: ""
   })
@@ -51,9 +48,9 @@ axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
 
   render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Form practice React App</p>
+    <div>
+      <header>
+        <p>Register Account</p>
         <form onSubmit={(e) => {this.handleSubmit(e)}}>
           <label>Email: 
             <input name="email" type="text" value={this.state.email} onChange={(e) => {this.handleChange(e)}}></input>
