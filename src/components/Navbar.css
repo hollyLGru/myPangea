@@ -1,15 +1,20 @@
-ul {
-    list-style-type: none;
-    padding: 0;
-    color: blue
-  }
 
-  li {
-    float: left;
-    padding-left: 100pt
-  }
+h1{
+    font-size: 70%;
+    padding-left: 14%;
+    padding-right: 3%;
+    opacity: 80%;
+    
+}
 
-  .AppBar {
-color: pink;
+h1:hover {
+    opacity: 30%
+}
 
-  }
+h2 {
+    font-size: 300%;
+    margin-top: 5%;
+    opacity: 55%;
+    
+}
+

@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 
 const Welcome = () => {
     return (
@@ -9,8 +11,10 @@ const Welcome = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                marginTop: '5%'
                 }}>
-                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/300620794_1198227474360541_6083866468668166618_n.png?_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=nyySKeubrsgAX-1w2ZD&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVIgoMGTYCZOMLnBnW9GshSy-3sD_NOUjWIl3PTtXYHbGg&oe=633059ED" width="70%"  />
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/299795436_447897597085482_5035268886829281652_n.png?_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qT7cnXc0Wa4AX8CBmPQ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVIKwXp85I3wepGsczy8XZRRjHmCxz-2R1MgPojY9T4bAw&oe=632E9E09" alt="myPangea Logo"
+                width="50%" />
            </div>
            <br/>
            <div class="buttonContainer"
@@ -19,12 +23,12 @@ const Welcome = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 }} >
-                    <Button variant="contained" sx={{margin: '5%', width: '15%'}} >
+                    <Button variant="contained" sx={{margin: '5%', width: '15%', backgroundColor: "#FF5C5C"}} >
                         <Link to="./Register">
                             Register
                         </Link>
                      </Button>
-                    <Button variant="contained" sx={{margin: '5%', width: '15%'}} >
+                    <Button variant="contained" sx={{margin: '5%', width: '15%', backgroundColor: '#5EC7D1'}} >
                         <Link to="./Login">
                              Login
                         </Link>

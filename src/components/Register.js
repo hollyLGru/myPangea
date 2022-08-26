@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import './Navbar.css';
+import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+
+const ariaLabel = { 'aria-label': 'description' };
 
 
 class App extends Component {
 constructor(props){
     super(props)
-
     this.state={
-      firstName: "",
-      lastName: "",
       email: "",
       password: ""
     }
@@ -18,16 +20,11 @@ handleChange = (e) => {
   console.log(e.target.name)
   this.setState({
     [e.target.name]: e.target.value
-    //e.target.name can be either firstName or lastName below!! instead of doing what we had before: lastName : e.target.value
   })
 }
 
 handleSubmit = (e) => {
   e.preventDefault()
-  //prevents page reload and so that we can save the information submitted 
-
-//THIS IS WHERE WE STORE THE DATA THAT WAS ENTERED IN FORM!!!!!!!!
-//use axios here: 
 axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
   email: this.state.email,
   password: this.state.password
@@ -38,9 +35,7 @@ axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
 .catch(function (error) {
   console.log(error)
 })
-
   this.setState({
-
     email: "",
     password: ""
   })
@@ -48,21 +43,18 @@ axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
 
   render() {
   return (
-    <div>
-      <header>
-        <p>Register Account</p>
+    <div style={{
+      margin: 'auto',
+      textAlign: 'center'
+      }}>
+        <h2 sx={{color: '#FF5C5C'}}>Register Account</h2>
         <form onSubmit={(e) => {this.handleSubmit(e)}}>
-          <label>Email: 
-            <input name="email" type="text" value={this.state.email} onChange={(e) => {this.handleChange(e)}}></input>
-          </label>
-          <br></br>
-          <label>Password: 
-            <input name="password" type="text" value={this.state.password} onChange={(e) => {this.handleChange(e)}}></input>
-          </label>
-          <br></br>
-          <input type="submit" value="Submit" />
+          <Input sx={{width: '30%'}} placeholder="Email" inputProps={ariaLabel} name="email" type="text" value={this.state.email} onChange={(e) => {this.handleChange(e)}}/>
+          <br/>
+          <Input sx={{width: '30%', margin: '3%'}} placeholder="Password" inputProps={ariaLabel} name="password" type="text" value={this.state.password} onChange={(e) => {this.handleChange(e)}}/>
+          <br/>
+          <Button variant="outlined" type="submit" value="Submit" sx={{margin: '3%', color: "#FF5C5C "}}>Register</Button>
         </form>
-    </header>
     </div>
   )
   }

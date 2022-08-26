@@ -6,6 +6,7 @@ import About from './components/About'
 import Login from './components/Login'
 import Register from './components/Register'
 import Welcome from './components/Welcome'
+import Upload from './components/Upload'
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -29,8 +30,8 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<Welcome/>} />
             <Route path="/" element={<ProtectedRoute component={Home} />} />
-
-            <Route path="/login" element={<Login/>} />
+            <Route path="/Upload" element={<ProtectedRoute component={Upload} />} />
+            <Route path="/Login" element={<Login/>} />
             <Route path="/Register" element={<Register/>} />
             <Route path="/About" element={<About/>} />
         </Routes>
