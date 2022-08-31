@@ -23,7 +23,7 @@ const Navbar = () => {
               document.cookie = cookie.serialize("loggedIn", null, {
                 maxAge: 0,
               });
-              navigate("/logout");
+              navigate("/Login");
             }}
               >Logout</h1>
       </Toolbar>

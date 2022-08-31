@@ -8,6 +8,7 @@ import Register from './components/Register'
 import Welcome from './components/Welcome'
 import Upload from './components/Upload'
 
+
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
 const checkAuth = () => {
