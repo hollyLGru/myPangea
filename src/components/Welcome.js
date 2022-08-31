@@ -17,7 +17,7 @@ const Welcome = () => {
                 width="50%" />
            </div>
            <br/>
-           <div class="buttonContainer"
+           <div className="buttonContainer"
             style={{
                 display: 'flex',
                 alignItems: 'center',
