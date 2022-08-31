@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { TextField, Button, Container } from "@mui/material";
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from 'axios';
-
+import './Upload.css';
 
 const Upload = () => {
 
@@ -15,8 +14,7 @@ const Upload = () => {
     city: "",
     country: "",
     photo: "",
-    diary: ""
-
+    diary: "",
   });
 
 
@@ -32,7 +30,7 @@ const Upload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  axios.post('http://hollygrudovichfirstapp.herokuapp.com/myPANGEA', {
+  axios.post('http://localhost:8000/myPANGEA', {
     date: state.date,
     city: state.city,
     country: state.country,
@@ -49,40 +47,52 @@ const Upload = () => {
   }
 
   return (
-    <div className="App">
+    <div>
+      <h3>Add New Entry</h3>
       <Container maxWidth="sm">
         <form onSubmit={(e) => {handleSubmit(e)}}>
+            <TextField
+            sx={{ minWidth: 100, margin: '2%' }}
+              required
+              onChange={handleTextChange}
+              value={state.date}
+              name="date"
+              label="YYYY-MM-DD"
+              type="text"
+              id="standard-basic" 
+              variant="standard"
+            />
+          <br/>
           <TextField
-            required
-            onChange={handleTextChange}
-            value={state.date}
-            name="date"
-            label="YYYY-MM-DD"
-            type="text"
-          />
-          <TextField
+          sx={{ minWidth: 100 , margin: '2%'}}
             required
             onChange={handleTextChange}
             value={state.city}
             name="city"
             label="City"
             type="text"
+            id="standard-basic" 
+            variant="standard"
           />
+          <br/>
         <TextField
+        sx={{ minWidth: 100, margin: '2%' }}
             required
             onChange={handleTextChange}
             value={state.country}
             name="country"
             label="Country"
             type="text"
+            id="standard-basic" 
+            variant="standard"
           />
-        <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Country</InputLabel>
+          <br/>
+        <FormControl sx={{width: '60%' }}>
+            <InputLabel id="demo-simple-select-label">Continent</InputLabel>
             <Select
             labelId="demo-simple-select-label"
-            id="country"
-            value={state.country}
+            id="continent"
+            value={state.continent}
             label="Continent"
             onChange={handleTextChange}
             >
@@ -96,12 +106,8 @@ const Upload = () => {
 
             </Select>
         </FormControl>
-        </Box>
-
-
-
-
-        <TextField
+        <br/>
+        <TextField sx={{ minWidth: 100, margin: '2%' }}
             required
             onChange={handleTextChange}
             value={state.photo}
@@ -109,23 +115,33 @@ const Upload = () => {
             label="Photo Url"
             type="text"
           />
-        <TextField
-            required
-            onChange={handleTextChange}
-            value={state.diary}
-            name="diary"
-            label="Diary Entry Here"
-            type="text"
-          />
+          
+          <br/>
 
-          <Button
+        <TextField
+          sx={{ minWidth: 100 , margin: '2%'}}
+          required
+          onChange={handleTextChange}
+          value={state.diary}
+          type="text"
+          className="diary"
+          id="filled-multiline-static"
+          label="Write Journal Entry Here"
+          multiline
+          rows={7}
+          defaultValue="Default Value"
+          variant="filled"
+        />
+
+        <br/>
+        <Button sx={{ minWidth: 100 , margin: '2%' , backgroundColor: "#FF5C5C"}}
             type="submit"
             className="diary-button"
             variant="contained"
             color="primary"
           >
-            Submit Diary Entry
-          </Button>
+            Submit Entry
+        </Button>
         </form>
       </Container>
     </div>

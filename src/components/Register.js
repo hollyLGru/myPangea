@@ -25,7 +25,7 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
   e.preventDefault()
-axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
+axios.post('http://localhost:8000/register', {
   email: this.state.email,
   password: this.state.password
 })
