@@ -31,6 +31,7 @@ axios.post('http://localhost:8000/register', {
 })
 .then(function(response){
   console.log(response)
+  //when this response comes back , we need to store bearer token in cookies
 })
 .catch(function (error) {
   console.log(error)

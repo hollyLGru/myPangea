@@ -31,12 +31,21 @@ const Upload = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   axios.post('http://localhost:8000/myPANGEA', {
-    date: state.date,
-    city: state.city,
-    country: state.country,
-    photo: state.photo,
-    diary: state.diary,
-    continent : state.continent 
+
+    date : "2020-12-20",
+    city : "test",
+    country : "test",
+    photo : "Gtest" , 
+    diary : " test",
+    continent : "NorthAmerica"
+
+
+    // date: state.date,
+    // city: state.city,
+    // country: state.country,
+    // photo: state.photo,
+    // diary: state.diary,
+    // continent : "YELLOW"
   })
   .then(response=>{
     console.log(response);
@@ -118,7 +127,7 @@ const Upload = () => {
           
           <br/>
 
-        <TextField
+        {/* <TextField
           sx={{ minWidth: 100 , margin: '2%'}}
           required
           onChange={handleTextChange}
@@ -131,7 +140,12 @@ const Upload = () => {
           rows={7}
           defaultValue="Default Value"
           variant="filled"
-        />
+        /> */}
+
+        <textarea name="diary" rows="4" cols="50" onChange={handleTextChange} value={state.diary}>
+        Write Journal Entry Here
+        </textarea>
+
 
         <br/>
         <Button sx={{ minWidth: 100 , margin: '2%' , backgroundColor: "#FF5C5C"}}
