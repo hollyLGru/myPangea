@@ -6,7 +6,14 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
     return (
-        <div>
+        <div> 
+            
+            {/* TODO!!!!!
+            
+            if logged in = false, we need to show the code below.
+            if logged in = true, we need to show the HOME.JS screen 
+            HOW DO WE DO SUCH A THING?!
+            */}
             <div style={{
                 display: 'flex',
                 alignItems: 'center',

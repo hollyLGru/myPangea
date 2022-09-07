@@ -145,7 +145,7 @@ const Upload = () => {
           variant="filled"
         /> */}
 
-        <textarea name="diary" rows="4" cols="50" onChange={handleTextChange} value={state.diary}>
+        <textarea name="diary" rows="12" cols="80" onChange={handleTextChange} value={state.diary}>
         Write Journal Entry Here
         </textarea>
 
