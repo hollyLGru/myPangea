@@ -16,7 +16,7 @@ const Navbar = () => {
         backgroundColor: 'white'
       }}>
       <Toolbar>
-            <h1  style={{color: "#FF5C5C "}}><Link to="/">MyPangea</Link></h1>
+            <h1  style={{color: "#FF5C5C "}}><Link to="/Home">MyPangea</Link></h1>
             <h1  style={{color: "rgb(247,191,118) "}}><Link to="/about">About</Link></h1>
             <h1  style={{color: "#8BB09D "}}><Link to="/Upload">Upload</Link></h1>
             <h1  style={{color: "#B475AA "}} onClick={() => {

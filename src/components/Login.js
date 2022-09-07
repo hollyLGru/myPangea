@@ -3,8 +3,9 @@ import axios from 'axios';
 import './Navbar.css';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 const ariaLabel = { 'aria-label': 'description' };
+
 
 
 const Login = (props) => {
@@ -60,6 +61,8 @@ axios.post('http://localhost:8000/login', {
           <br/>
           <Button variant="outlined" type="submit" value="Submit" sx={{margin: '3%', color: "#5EC7D1 "}}>Submit</Button>
         </form>
+        <br></br> 
+        <h5> <Link to="/Register">New to myPANEGA? Register here</Link></h5>
     </div>
   )
     }
