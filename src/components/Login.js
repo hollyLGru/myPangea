@@ -38,6 +38,8 @@ axios.post('http://localhost:8000/login', {
 })
 .then(response=>{
   console.log(response);
+  document.cookie = `jwt=${response.headers.authorization};max-age=60*1000`;
+  document.cookie = `userID=${response.data.userID};max-age=60*1000`
   loggingIn()
 })
 .catch(function (error) {

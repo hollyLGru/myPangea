@@ -6,6 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import './Upload.css';
+import cookie from 'cookie'
+console.log(cookie.parse(document.cookie))
 
 const Upload = () => {
 
@@ -14,8 +16,10 @@ const Upload = () => {
     city: "",
     country: "",
     photo: "",
-    diary: "",
+    diary: ""
   });
+
+  const cookies = cookie.parse(document.cookie);
 
 
   const handleTextChange = (e) => {
@@ -30,22 +34,20 @@ const Upload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(state)
+    console.log(cookies)
   axios.post('http://localhost:8000/myPANGEA', {
-
-    date : "2020-12-20",
-    city : "test",
-    country : "test",
-    photo : "Gtest" , 
-    diary : " test",
-    continent : "NorthAmerica"
-
-
-    // date: state.date,
-    // city: state.city,
-    // country: state.country,
-    // photo: state.photo,
-    // diary: state.diary,
-    // continent : "YELLOW"
+    date: state.date,
+    city: state.city,
+    country: state.country,
+    photo: state.photo,
+    diary: state.diary,
+    continent:state.continent,
+    userID:parseInt(cookies.userID)
+  }, {
+    headers: {
+      Authorization: cookies.jwt
+    }
   })
   .then(response=>{
     console.log(response);
@@ -101,6 +103,7 @@ const Upload = () => {
             <Select
             labelId="demo-simple-select-label"
             id="continent"
+            name="continent"
             value={state.continent}
             label="Continent"
             onChange={handleTextChange}
