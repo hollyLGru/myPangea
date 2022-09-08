@@ -4,6 +4,7 @@ import './Navbar.css';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import {Link, useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
 const ariaLabel = { 'aria-label': 'description' };
 
 
@@ -57,7 +58,17 @@ axios.post('http://localhost:8000/login', {
         <form onSubmit={(e) => {handleSubmit(e)}}>
           <Input sx={{width: '30%'}} placeholder="Email" inputProps={ariaLabel} name="email" type="text" value={credentials.email} onChange={(e) => {handleChange(e)}}/>
           <br/>
-          <Input sx={{width: '30%', margin: '3%'}} placeholder="Password" inputProps={ariaLabel} name="password" type="text" value={credentials.password} onChange={(e) => {handleChange(e)}}/>
+          <TextField
+          sx={{width: '30%', margin: '3%'}}
+          id="filled-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          variant="filled"
+          name="password" value={credentials.password} onChange={(e) => {handleChange(e)}}
+        />
+
+          {/* <Input sx={{width: '30%', margin: '3%'}} placeholder="Password" inputProps={ariaLabel} name="password" type="text" value={credentials.password} onChange={(e) => {handleChange(e)}}/> */}
           <br/>
           <Button variant="outlined" type="submit" value="Submit" sx={{margin: '3%', color: "#5EC7D1 "}}>Submit</Button>
         </form>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Navbar.css';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -52,7 +53,17 @@ axios.post('http://localhost:8000/register', {
         <form onSubmit={(e) => {this.handleSubmit(e)}}>
           <Input sx={{width: '30%'}} placeholder="Email" inputProps={ariaLabel} name="email" type="text" value={this.state.email} onChange={(e) => {this.handleChange(e)}}/>
           <br/>
-          <Input sx={{width: '30%', margin: '3%'}} placeholder="Password" inputProps={ariaLabel} name="password" type="text" value={this.state.password} onChange={(e) => {this.handleChange(e)}}/>
+          <TextField
+          sx={{width: '30%', margin: '3%'}}
+          id="filled-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          variant="filled"
+          name="password" value={this.state.password} onChange={(e) => {this.handleChange(e)}}
+        /><br></br>
+
+          {/* <Input sx={{width: '30%', margin: '3%'}} placeholder="Password" inputProps={ariaLabel} name="password" type="text" value={this.state.password} onChange={(e) => {this.handleChange(e)}}/> */}
           <br/>
           <Button variant="outlined" type="submit" value="Submit" sx={{margin: '3%', color: "#FF5C5C "}}>Register</Button>
         </form>
