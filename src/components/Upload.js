@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TextField, Button, Container } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,12 +8,15 @@ import Select from '@mui/material/Select';
 import axios from 'axios';
 import './Upload.css';
 import cookie from 'cookie'
-console.log(cookie.parse(document.cookie))
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const Upload = () => {
 
+  const [value, setValue] = React.useState(null);
+
   const [state, setState] = useState({
-    date: "",
+    // date: "",
     city: "",
     country: "",
     photo: "",
@@ -37,7 +41,7 @@ const Upload = () => {
     console.log(state)
     console.log(cookies)
   axios.post('http://localhost:8000/myPANGEA', {
-    date: state.date,
+    date: value,
     city: state.city,
     country: state.country,
     photo: state.photo,
@@ -62,7 +66,7 @@ const Upload = () => {
       <h3>Add New Entry</h3>
       <Container maxWidth="sm">
         <form onSubmit={(e) => {handleSubmit(e)}}>
-            <TextField
+            {/* <TextField
             sx={{ minWidth: 100, margin: '2%' }}
               required
               onChange={handleTextChange}
@@ -72,7 +76,19 @@ const Upload = () => {
               type="text"
               id="standard-basic" 
               variant="standard"
+            /> */}
+
+             <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Basic example"
+              name="date"
+              value={value}
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
             />
+          </LocalizationProvider>
           <br/>
           <TextField
           sx={{ minWidth: 100 , margin: '2%'}}

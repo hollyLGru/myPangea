@@ -1,22 +1,50 @@
-import React, { useState} from 'react';
+import React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+
 
 
 function EntryCard(props) {
-        
-    return(
-    <li>
-        <img src={props.photo} alt=""></img>
-        <h3> 
-        {props.date} 
-            <span> {props.city}</span> 
-        </h3>
-        <h4>{props.country}</h4>
-        <p>
-            <span>{props.continent}</span>
-        </p>
-        <br></br>
+    let date = new Date(props.date);
+    let entryDate = date.toDateString();
+    // let entryDate = entryDate1.slice(3, 15)
 
-    </li>
+    return(
+
+                <Card sx={{ width: '22%',   margin: "1.5%"}}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={props.photo}
+                        alt="trip photo"
+                    />
+                    <CardContent>
+
+                        <Typography gutterBottom variant="h5" component="div">
+                        {entryDate}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary">
+                        {props.city}, {props.country}
+                        <br></br>
+                        {props.continent}
+                        </Typography>
+
+                    </CardContent>
+                    
+                    <CardActions>
+                                <Button size="small">Entry</Button>
+
+                    </CardActions> 
+                    </Card>
+
+            
+    
     )
     
 };
