@@ -27,7 +27,7 @@ const handleChange = (e) => {
 const loggingIn = (e) => {
     // e.preventDefault();
     document.cookie = "loggedIn=true;max-age=60*1000"
-    navigate("/");
+    navigate("/Home");
   };
 
  const handleSubmit = (e) => {

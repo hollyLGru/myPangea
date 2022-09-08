@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
-// import { Link } from 'react-router-dom'
-// import { Card, CardContent, CardActions, Divider } from '@mui/material'
+import React, { Component } from 'react';
+import axios from 'axios';
+import EntryCard from './Entrycard'
+
+class Home extends Component {
+    constructor(){
+        super()
+
+        this.state = {
+          arrayOfEntries: [],
+        }
+      };
 
 
-const Home = () => {
+      componentDidMount(){
+        axios.get('http://localhost:8000/myPANGEA/userentries/35')
+        // documents.cookies.userID needs to match :id 
+        .then (res => {
+          const arrayOfEntries = res.data;
+          this.setState({ arrayOfEntries })
+        })
+        };
 
-    const [ updateEntries] = useState([])
 
-    fetch('http://localhost:8000/myPANGEA/userentries/:id')
-    .then((response) => response.json())
-      .then((data) => {updateEntries(data.results)})
-// documents.cookies.userID needs to match :id 
 
-    return (
-        <div className="card-container">
-            {/* {cars.map((car, idx) => (
-                <Card key={idx} className="card">
-                    <CardContent className="text-gray">
-                        <span>{car.Name.toUpperCase()}</span>
-                        <ul>
-                        <li>Miles_per_Gallon: {car["Miles_per_Gallon"]}</li>
-                        <li>Cylinders: {car["Cylinders"]}</li>
-                        <li>Displacement: {car["Displacement"]}</li>
-                        <li>Horsepower: {car["Horsepower"]}</li>
-                        </ul>
-                    </CardContent>
-                    <Divider />
-                    <CardActions style={{ color: 'mediumblue' }}>
-                        <Link to={`/car/${car.id}`}>See More Details</Link>
-                    </CardActions>
-                </Card>
-            ))} */}
-        </div>
-    )
-}
+    render() {
+        return (
+          <div className="App">
+            <header className="App-header">
+            <ol>{this.state.arrayOfEntries.map((entry, index) => {
+              return (
+                <EntryCard key={index} id={entry.id} date={entry.date} city={entry.city} country={entry.country} photo={entry.photo} diary={entry.diary} UserID={entry.UserID} continent={entry.continent} />
+
+              )
+            })}</ol>
+            </header>
+          </div>
+        );
+        }
+      }
 
 export default Home
+
+
