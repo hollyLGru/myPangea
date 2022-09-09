@@ -7,7 +7,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Welcome from './components/Welcome'
 import Upload from './components/Upload'
-
+import PangeaEntry from './components/PangeaEntry'
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -35,6 +35,7 @@ const Router = () => {
             <Route path="/Login" element={<Login/>} />
             <Route path="/Register" element={<Register/>} />
             <Route path="/About" element={<About/>} />
+            <Route path="/PangeaEntry/:id" element={<PangeaEntry/>} />
         </Routes>
     );
 };

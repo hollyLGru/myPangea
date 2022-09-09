@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -38,8 +38,7 @@ function EntryCard(props) {
                     </CardContent>
                     
                     <CardActions>
-                                <Button size="small">Entry</Button>
-
+                                <Button size="small"><Link to={`/PangeaEntry/${props.id}`}> Entry</Link></Button>
                     </CardActions> 
                     </Card>
 
