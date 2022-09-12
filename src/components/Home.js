@@ -28,13 +28,18 @@ class Home extends Component {
           this.setState({ arrayOfEntries })
         })
         };
+        // TODO!!! I want to make a drop down menu where you can filter all entries by continent,
+        //however I want it so that if nothing is selected, then ALL the entries are visible 
+        // const northAmericaEntries = arrayOfEntries.filter(function(entry) {
+        //   return entry.continent === "NorthAmerica"
+        // })
 
-
+        // console.log(northAmericaEntries)
 
     render() {
         return (
-
             <Container>
+              {}
               <h2>Entries</h2>
               <Grid container spacing={8}  style={{margin: "auto"}}>
                 {this.state.arrayOfEntries.map((entry, index) => {

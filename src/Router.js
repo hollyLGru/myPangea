@@ -35,7 +35,7 @@ const Router = () => {
             <Route path="/Login" element={<Login/>} />
             <Route path="/Register" element={<Register/>} />
             <Route path="/About" element={<About/>} />
-            <Route path="/PangeaEntry/:id" element={<PangeaEntry/>} />
+            <Route path="/PangeaEntry/:id" element={<ProtectedRoute component={PangeaEntry} />} />
         </Routes>
     );
 };
