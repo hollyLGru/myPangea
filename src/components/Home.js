@@ -4,21 +4,23 @@ import EntryCard from './Entrycard';
 import cookie from 'cookie';
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid';
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const cookies = cookie.parse(document.cookie);
 const userID = parseInt(cookies.userID);
 
 class Home extends Component {
-
-
     constructor(){
         super()
         this.state = {
           arrayOfEntries: [],
+          filterSelect: false,
+          continentEntries: []
         }
       };
-
 
 
       componentDidMount(){
@@ -28,26 +30,65 @@ class Home extends Component {
           this.setState({ arrayOfEntries })
         })
         };
-        // TODO!!! I want to make a drop down menu where you can filter all entries by continent,
-        //however I want it so that if nothing is selected, then ALL the entries are visible 
-        // const northAmericaEntries = arrayOfEntries.filter(function(entry) {
-        //   return entry.continent === "NorthAmerica"
-        // })
 
-        // console.log(northAmericaEntries)
+        handleChange(e) {
+          console.log("continent selected");
+          const contEntries = this.state.arrayOfEntries.filter(function(entry) {
+            return entry.continent === e.target.value
+          })
+          this.setState({ filterSelect: true, continentEntries : contEntries});
+        }
+
 
     render() {
         return (
             <Container>
-              {}
+
               <h2>Entries</h2>
-              <Grid container spacing={8}  style={{margin: "auto"}}>
-                {this.state.arrayOfEntries.map((entry, index) => {
-                return (
-                  <EntryCard item xs={4} key={index} id={entry.id} date={entry.date} city={entry.city} country={entry.country} photo={entry.photo} diary={entry.diary} UserID={entry.UserID} continent={entry.continent} />
-                  )
-                })}
-              </Grid>
+              <br></br>
+
+               <FormControl sx={{width: '60%' }}>
+              <InputLabel id="demo-simple-select-label">Continent</InputLabel>
+              <Select
+              labelId="demo-simple-select-label"
+              id="continent"
+              name="continent"
+              value={this.state.continentEntries}
+              label="Continent"
+              onChange={this.handleChange.bind(this)}
+              >
+                <MenuItem value="Asia">Asia</MenuItem>
+                <MenuItem value="NorthAmerica">North America</MenuItem>
+                <MenuItem value="SouthAmerica">South America</MenuItem>
+                <MenuItem value="Oceania">Oceania</MenuItem>
+                <MenuItem value="Europe">Europe</MenuItem>
+                <MenuItem value="Africa">Africa</MenuItem>
+                <MenuItem value="Antarctica">Antarctica</MenuItem>
+
+                </Select>
+            </FormControl> 
+
+            <br></br> {
+              !this.state.filterSelect ? <Grid container spacing={8}  style={{margin: "auto"}}>
+              {this.state.arrayOfEntries.map((entry, index) => {
+              return (
+                <EntryCard item xs={4} key={index} id={entry.id} date={entry.date} city={entry.city} country={entry.country} photo={entry.photo} diary={entry.diary} UserID={entry.UserID} continent={entry.continent} />
+                )
+              })}
+            </Grid> 
+            
+              :
+
+
+            <Grid container spacing={8}  style={{margin: "auto"}}>
+            {this.state.continentEntries.map((entry, index) => {
+            return (
+              <EntryCard item xs={4} key={index} id={entry.id} date={entry.date} city={entry.city} country={entry.country} photo={entry.photo} diary={entry.diary} UserID={entry.UserID} continent={entry.continent} />
+              )
+            })}
+          </Grid>
+
+            }
             </Container>
 
 
