@@ -4,19 +4,20 @@ import EntryCard from './Entrycard';
 import cookie from 'cookie';
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import {ComposableMap, Geographies, Geography} from 'react-simple-maps';
-
+import BasicWorldMap from 'react-basic-world-map';
 
 
 const cookies = cookie.parse(document.cookie);
 const userID = parseInt(cookies.userID);
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-continents.json";
 
+const continents = [
+  { key: "Africa", value: "Africa" },
+  { key: "SouthAmerica", value: "SouthAmerica" },
+  { key: "Europe", value: "Europe" },
+  { key: "Asia", value: "Asia" },
+  { key: "NorthAmerica", value: "NorthAmerica" },
+  { key: "Oceania", value: "Oceania" }
+]
 
 
 class Home extends Component {
@@ -49,25 +50,13 @@ class Home extends Component {
 
     render() {
         return (
-            <Container>
-              <div className="Map" style={{width: "80%", margin: 'auto', display: "flex", flexDirection: "column", justifyConent: "center", alignItems: "center"}}>
-                <div style={{width:"50%"}}>
-                    <ComposableMap data-tip="">
-                        <Geographies geography={geoUrl}>
-                            {({ geographies }) =>
-                                geographies.map((geo) => (
-                                    <Geography key={geo.rsmKey} geography={geo} onClick={this.handleChange.bind(this)}
-                                        style={{
-                                            hover: {fill:"grey"},
-                                            outline: 'none'
-                                        }} />
-                    ))
-                }
-                        </Geographies>
-                    </ComposableMap>
-                </div>
-            </div>
-
+          <Container>
+            <BasicWorldMap
+            primaryColor="#699EAA"
+            secondaryColor="#FF5C5C"
+            onClickMapContinent={this.handleChange.bind(this)}
+            continents= {continents}
+            />
             <br></br> {
               !this.state.filterSelect ? <Grid container spacing={8}  style={{margin: "auto"}}>
               {this.state.arrayOfEntries.map((entry, index) => {
@@ -101,7 +90,7 @@ class Home extends Component {
 export default Home
 
 
-               {/* <FormControl sx={{width: '60%' }}>
+{/* <FormControl sx={{width: '60%' }}>
               <InputLabel id="demo-simple-select-label">Continent</InputLabel>
               <Select
               labelId="demo-simple-select-label"
