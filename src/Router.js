@@ -8,6 +8,7 @@ import Register from './components/Register'
 import Welcome from './components/Welcome'
 import Upload from './components/Upload'
 import PangeaEntry from './components/PangeaEntry'
+import Map from './components/Map'
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -36,6 +37,7 @@ const Router = () => {
             <Route path="/Register" element={<Register/>} />
             <Route path="/About" element={<About/>} />
             <Route path="/PangeaEntry/:id" element={<ProtectedRoute component={PangeaEntry} />} />
+            <Route path="/Map" element={<Map/>} />
         </Routes>
     );
 };

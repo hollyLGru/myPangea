@@ -2,12 +2,8 @@
 import  {React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import cookie from 'cookie';
 
 
-// TODO!!! WE NEED TO USE JWT TO MAKE SURE THAT WE CAN SEE THE ENTRIES!!!
-const cookies = cookie.parse(document.cookie);
-const userID = parseInt(cookies.userID);
 
 const PangeaEntry = (props) => {
     const [entry, setEntry] = useState({
