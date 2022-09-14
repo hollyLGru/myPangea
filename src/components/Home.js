@@ -6,11 +6,10 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid';
 import BasicWorldMap from 'react-basic-world-map';
 
-
 const cookies = cookie.parse(document.cookie);
 const userID = parseInt(cookies.userID);
 
-const continents = [
+const continents: ContinentItem[] =[
   { key: "Africa", value: "Africa" },
   { key: "SouthAmerica", value: "SouthAmerica" },
   { key: "Europe", value: "Europe" },
@@ -32,18 +31,30 @@ class Home extends Component {
 
 
       componentDidMount(){
-        axios.get(`http://localhost:8000/myPANGEA/userentries/${userID}`)
+        axios.get(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/userentries/${userID}`)
         .then (res => {
           const arrayOfEntries = res.data;
           this.setState({ arrayOfEntries })
         })
         };
 
+        // componentDidMount(){
+        //   axios.get(`http://localhost:8000/myPANGEA/userentries/${userID}`)
+        //   .then (res => {
+        //     const arrayOfEntries = res.data;
+        //     this.setState({ arrayOfEntries })
+        //   })
+        //   };
+
         handleChange(e) {
           console.log("continent selected", e);
+          console.log(e.key)
           const contEntries = this.state.arrayOfEntries.filter(function(entry) {
-            return entry.continent === e.target.value
-          })
+            return entry.continent === e.key
+          }) 
+          // if(contEntries.length == 0) {
+            
+          // }
           this.setState({ filterSelect: true, continentEntries : contEntries});
         }
 
@@ -51,13 +62,23 @@ class Home extends Component {
     render() {
         return (
           <Container>
+            <h2 style={{fontSize: "150%", marginLeft: "5%"}}>Filter Entries By Continent:</h2>
             <BasicWorldMap
             primaryColor="#699EAA"
             secondaryColor="#FF5C5C"
             onClickMapContinent={this.handleChange.bind(this)}
             continents= {continents}
+            name="continent"
+            value={this.state.continentEntries}
+            style={{
+              margin: "auto",
+              textAlign: "center",
+              display: "block",
+              marginTop: "2%"
+            }}
             />
-            <br></br> {
+            <br></br> 
+            {
               !this.state.filterSelect ? <Grid container spacing={8}  style={{margin: "auto"}}>
               {this.state.arrayOfEntries.map((entry, index) => {
               return (
@@ -68,7 +89,6 @@ class Home extends Component {
             
               :
 
-
             <Grid container spacing={8}  style={{margin: "auto"}}>
             {this.state.continentEntries.map((entry, index) => {
             return (
@@ -76,8 +96,7 @@ class Home extends Component {
               )
             })}
           </Grid>
-
-            }
+          }
             </Container>
 
 

@@ -8,7 +8,7 @@ import Register from './components/Register'
 import Welcome from './components/Welcome'
 import Upload from './components/Upload'
 import PangeaEntry from './components/PangeaEntry'
-import Map from './components/Map'
+import CarouselCard from './components/CarouselCard'
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -31,13 +31,13 @@ const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Welcome/>} />
+            <Route path="/Carousel" element={<CarouselCard/>} />
             <Route path="/Home" element={<ProtectedRoute component={Home} />} />
             <Route path="/Upload" element={<ProtectedRoute component={Upload} />} />
             <Route path="/Login" element={<Login/>} />
             <Route path="/Register" element={<Register/>} />
             <Route path="/About" element={<About/>} />
             <Route path="/PangeaEntry/:id" element={<ProtectedRoute component={PangeaEntry} />} />
-            <Route path="/Map" element={<Map/>} />
         </Routes>
     );
 };

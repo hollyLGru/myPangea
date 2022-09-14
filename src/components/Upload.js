@@ -10,6 +10,7 @@ import './Upload.css';
 import cookie from 'cookie'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useNavigate }  from "react-router-dom";
 
 const Upload = () => {
 
@@ -25,6 +26,7 @@ const Upload = () => {
 
   const cookies = cookie.parse(document.cookie);
 
+  let navigate = useNavigate();
 
   const handleTextChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +42,8 @@ const Upload = () => {
     e.preventDefault();
     console.log(state)
     console.log(cookies)
-  axios.post('http://localhost:8000/myPANGEA', {
+  // axios.post('http://localhost:8000/myPANGEA', {
+    axios.post('https://hollygrudovichfirstapp.herokuapp.com/myPANGEA', {
     date: value,
     city: state.city,
     country: state.country,
@@ -59,6 +62,7 @@ const Upload = () => {
   .catch(function (error) {
     console.log(error)
   })
+  navigate("/Home")
   }
 
   return (
@@ -68,7 +72,7 @@ const Upload = () => {
         <form onSubmit={(e) => {handleSubmit(e)}}>
              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                  label="Basic example"
+                  label="Date of Entry"
                   name="date"
                   value={value}
                   onChange={(newValue) => {

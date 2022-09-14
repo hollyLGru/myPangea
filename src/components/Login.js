@@ -31,10 +31,27 @@ const loggingIn = (e) => {
     navigate("/Home");
   };
 
+//  const handleSubmit = (e) => {
+//   e.preventDefault();
+//   console.log(credentials)
+// axios.post('http://localhost:8000/login', {
+//   email: credentials.email,
+//   password: credentials.password
+// })
+// .then(response=>{
+//   console.log(response);
+//   document.cookie = `jwt=${response.headers.authorization};max-age=60*1000`;
+//   document.cookie = `userID=${response.data.userID};max-age=60*1000`
+//   loggingIn()
+// })
+// .catch(function (error) {
+//   console.log(error)
+// })
+
  const handleSubmit = (e) => {
   e.preventDefault();
   console.log(credentials)
-axios.post('http://localhost:8000/login', {
+axios.post('https://hollygrudovichfirstapp.herokuapp.com/login', {
   email: credentials.email,
   password: credentials.password
 })
@@ -47,6 +64,9 @@ axios.post('http://localhost:8000/login', {
 .catch(function (error) {
   console.log(error)
 })
+
+
+
 }
 
   return (

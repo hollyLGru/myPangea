@@ -24,9 +24,16 @@ handleChange = (e) => {
   })
 }
 
+// handleSubmit = (e) => {
+//   e.preventDefault()
+// axios.post('http://localhost:8000/register', {
+//   email: this.state.email,
+//   password: this.state.password
+// })
+
 handleSubmit = (e) => {
   e.preventDefault()
-axios.post('http://localhost:8000/register', {
+axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
   email: this.state.email,
   password: this.state.password
 })

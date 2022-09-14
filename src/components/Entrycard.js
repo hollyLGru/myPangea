@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom'
 function EntryCard(props) {
     let date = new Date(props.date);
     let entryDate = date.toDateString();
-    // let entryDate = entryDate1.slice(3, 15)
 
     return(
 
