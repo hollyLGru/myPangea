@@ -16,22 +16,8 @@ const PangeaEntry = (props) => {
 
 
 
-    useEffect(() => {
-        axios.get(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/${entryID}`)
-        .then (res => {
-            setEntry(res.data)
-            console.log(res)
-        })
-      }, [entryID])
-
-      const handleDelete = (e) => {
-        axios.delete(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/${entryID}`)
-        .then(() => setEntry({ status: 'Delete successful' }));
-        navigate("/Home")
-    }
-
     // useEffect(() => {
-    //     axios.get(`http://localhost:8000/myPANGEA/${entryID}`)
+    //     axios.get(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/${entryID}`)
     //     .then (res => {
     //         setEntry(res.data)
     //         console.log(res)
@@ -39,10 +25,24 @@ const PangeaEntry = (props) => {
     //   }, [entryID])
 
     //   const handleDelete = (e) => {
-    //     axios.delete(`http://localhost:8000/myPANGEA/${entryID}`)
+    //     axios.delete(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/${entryID}`)
     //     .then(() => setEntry({ status: 'Delete successful' }));
     //     navigate("/Home")
     // }
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/myPANGEA/${entryID}`)
+        .then (res => {
+            setEntry(res.data)
+            console.log(res)
+        })
+      }, [entryID])
+
+      const handleDelete = (e) => {
+        axios.delete(`http://localhost:8000/myPANGEA/${entryID}`)
+        .then(() => setEntry({ status: 'Delete successful' }));
+        navigate("/Home")
+    }
 
       let date = new Date(entry.date);
       let entryDate = date.toDateString();

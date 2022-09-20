@@ -24,19 +24,19 @@ handleChange = (e) => {
   })
 }
 
-// handleSubmit = (e) => {
-//   e.preventDefault()
-// axios.post('http://localhost:8000/register', {
-//   email: this.state.email,
-//   password: this.state.password
-// })
-
 handleSubmit = (e) => {
   e.preventDefault()
-axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
+axios.post('http://localhost:8000/register', {
   email: this.state.email,
   password: this.state.password
 })
+
+// handleSubmit = (e) => {
+//   e.preventDefault()
+// axios.post('https://hollygrudovichfirstapp.herokuapp.com/register', {
+//   email: this.state.email,
+//   password: this.state.password
+// })
 .then(function(response){
   console.log(response)
   //when this response comes back , we need to store bearer token in cookies

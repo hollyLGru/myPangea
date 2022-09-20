@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
-
+import CarouselCard from './Carousel';
 
 
 const Welcome = () => {
@@ -12,11 +12,15 @@ const Welcome = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: '5%'
+                marginTop: '5%',
                 }}>
+
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/299795436_447897597085482_5035268886829281652_n.png?_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qT7cnXc0Wa4AX8CBmPQ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVIKwXp85I3wepGsczy8XZRRjHmCxz-2R1MgPojY9T4bAw&oe=632E9E09" alt="myPangea Logo"
-                width="50%" />
+                width="40%" />
+                <CarouselCard/>
+                
            </div>
+
            <br/>
            <div className="buttonContainer"
             style={{
