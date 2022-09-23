@@ -15,12 +15,12 @@ const Welcome = () => {
                 marginTop: '5%',
                 }}>
 
-                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/299795436_447897597085482_5035268886829281652_n.png?_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qT7cnXc0Wa4AX8CBmPQ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVIKwXp85I3wepGsczy8XZRRjHmCxz-2R1MgPojY9T4bAw&oe=632E9E09" alt="myPangea Logo"
-                width="40%" />
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/306619864_852601049063578_4111733771120542054_n.png?_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=wpPcftmloqsAX-4dSNh&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVJFs9f1YHEKmvfbBNgkeovIBBV2RKv9q9pFmhZarmz_Ow&oe=6352EEC2" alt="myPangea Logo"
+                width="45%" />
                 <CarouselCard/>
                 
            </div>
-
+           {/* <p style={{marginLeft: "10%", marginTop: "-2.5%", fontStyle: "italic"}}>The Travel App That Brings Your World Together</p> */}
            <br/>
            <div className="buttonContainer"
             style={{
