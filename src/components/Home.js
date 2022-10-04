@@ -30,21 +30,21 @@ class Home extends Component {
       };
 
 
-      // componentDidMount(){
-      //   axios.get(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/userentries/${userID}`)
-      //   .then (res => {
-      //     const arrayOfEntries = res.data;
-      //     this.setState({ arrayOfEntries })
-      //   })
-      //   };
+      componentDidMount(){
+        axios.get(`https://hollygrudovichfirstapp.herokuapp.com/myPANGEA/userentries/${userID}`)
+        .then (res => {
+          const arrayOfEntries = res.data;
+          this.setState({ arrayOfEntries })
+        })
+        };
 
-        componentDidMount(){
-          axios.get(`http://localhost:8000/myPANGEA/userentries/${userID}`)
-          .then (res => {
-            const arrayOfEntries = res.data;
-            this.setState({ arrayOfEntries })
-          })
-          };
+        // componentDidMount(){
+        //   axios.get(`http://localhost:8000/myPANGEA/userentries/${userID}`)
+        //   .then (res => {
+        //     const arrayOfEntries = res.data;
+        //     this.setState({ arrayOfEntries })
+        //   })
+        //   };
 
         handleChange(e) {
           console.log("continent selected", e);
