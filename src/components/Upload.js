@@ -42,8 +42,8 @@ const Upload = () => {
     e.preventDefault();
     console.log(state)
     console.log(cookies)
-  // axios.post('http://localhost:8000/myPANGEA', {
-    axios.post('https://hollygrudovichfirstapp.herokuapp.com/myPANGEA', {
+  axios.post('http://localhost:8000/myPANGEA', {
+    // axios.post('https://hollygrudovichfirstapp.herokuapp.com/myPANGEA', {
     date: value,
     city: state.city,
     country: state.country,
