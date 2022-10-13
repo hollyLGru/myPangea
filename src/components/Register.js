@@ -4,7 +4,6 @@ import './Navbar.css';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import {Link, useNavigate } from "react-router-dom";
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -17,6 +16,7 @@ constructor(props){
       password: ""
     }
   }
+
 
 handleChange = (e) => {
   console.log(e.target.name)
@@ -49,7 +49,6 @@ axios.post('http://localhost:8000/register', {
     email: "",
     password: ""
   })
-  navigate("/Home")
 }
 
   render() {
