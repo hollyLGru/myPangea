@@ -4,6 +4,13 @@ React App for international travelers who wish to keep a digital journal / photo
 
 <img width="950" alt="mypangea" src="https://user-images.githubusercontent.com/91293977/197660008-fb0d2dc9-0ede-4b06-99cf-1598493b59dd.png">
 
+Above is the main screen. Users can create an account through the registration page and after an account is created, they will be brought to the log in screen. After user is properly authenticated, they will be redirected to their myPangea page which includes an interactive/clickable map and a list of all of their entries. 
+
+
+<img width="960" alt="login" src="https://user-images.githubusercontent.com/91293977/197661304-004c7e2d-a8f4-4f29-8963-6e8324dd5237.png">
+
+
+
 <img width="960" alt="pangeamap" src="https://user-images.githubusercontent.com/91293977/197660796-51c26309-f16b-4308-864d-945799f09cef.png">
 
 
