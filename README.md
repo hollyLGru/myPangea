@@ -1,6 +1,6 @@
 # myPangea
 
-React App for international travelers who wish to keep a digital journal / photo album. This app allows you to document your experiences and explore past trips through a map filtering device. Users can add and delete entries and may only interact with application after being properly authenticated through js web token. Back end/database written with Express framework which can be accessed here : https://github.com/hollyLGru/311Checkpoint 
+Full stack Express/React App for international travelers who wish to keep a digital journal / photo album. This app allows you to document your experiences and explore past trips through a map filtering device. Users can add and delete entries and may only interact with application after being properly authenticated through js web token. Back end/database written with Express framework which can be accessed here : https://github.com/hollyLGru/311Checkpoint 
 
 <img width="950" alt="mypangea" src="https://user-images.githubusercontent.com/91293977/197660008-fb0d2dc9-0ede-4b06-99cf-1598493b59dd.png">
 
